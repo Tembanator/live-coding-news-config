@@ -105,8 +105,11 @@ html {
             align-items: center;
             gap: 10px;
             font-size: 2.6rem;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
         }
+        #preferences-form {
+            margin-top: 20px;
+            margin-bottom: 30px;}
         .checkbox-group {
             display: flex;
             flex-direction: column;
@@ -150,8 +153,19 @@ html {
             /* background-color: gradient(90deg, var(--primary-color), var(--secondary-color)); */
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
+        #initial-message {
+            font-size: 2.0rem;
+            color: var(--dark-color);
+            text-align: center;
+            margin-top: 50px;
+        }
         #load-feed-btn {
             background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        }
+        #articles-container {
+            width: 100%;
+            min-height: 400px;
+            position: relative;
         }
         .article-card {
             /* max-width: 300px; */
@@ -164,9 +178,10 @@ html {
             height: 180px;
             margin-bottom: 15px;
             overflow: hidden; 
-            background-image: url('d.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            
         }
         .article-content {
             padding: 15px;
@@ -206,3 +221,66 @@ html {
             gap: 5px;
             align-items: center;
         }
+
+        .success-status {
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+            background-color: rgba(75, 181, 67, 0.1);
+        }
+        .error-status {
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+            background-color: rgba(255, 107, 107, 0.1);
+           
+        }
+        #save-status {
+            margin-top: 10px;
+            font-size: 1.4rem;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 700;
+        }
+        .hidden {
+            display: none;
+        }
+
+        /* 1. OVERLAY STYLES */
+        #loader-overlay {
+            /* Position and size */
+            position: absolute; /* Fixed position covers the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* Appearance */
+            background-color: rgba(250, 250, 250, 0  ); /* Semi-transparent white background */
+            z-index: 9999; /* Ensures it is on top of all other content */
+            
+            /* Centering the loader */
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+            /* Transition for smooth hide/show */
+            transition: opacity 0.3s ease;
+        }
+
+        /* 2. LOADER SPINNER STYLES */
+        .loader {
+            border: 8px solid #f3f3f3; /* Light grey border */
+            border-top: 8px solid #3498db; /* Blue top border (the spinner part) */
+            border-radius: 50%; /* Makes it a circle */
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite; /* Apply the animation */
+        }
+
+        /* 3. KEYFRAMES FOR ANIMATION */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+       
